@@ -33,15 +33,8 @@
 			//Los datos de registro llegan por post. Hace echo "ok" si el registro es exitoso, echo "error"
 			//en caso contrario
 			//Recibe: $_POST["codigo"],$_POST["nombre"],$_POST["semestre"],$_POST["correo"], $_POST["password"] y $_POST["password2"]
-			$query = $mobileQuery->registrar($_POST["nombre"],$_POST["apellido"],$_POST["documento"],$_POST["password"],$_POST["password2"]);
-			if($query){
-				echo "ok";
-			}
-			else{
-				echo "error";
-			}
-
-
+			echo $mobileQuery->registrar($_POST["nombre"],$_POST["apellido"],$_POST["documento"],$_POST["password"],$_POST["password2"]);
+			
 		}
 
 	}else if(isset($_GET["mobile"])){
@@ -74,7 +67,53 @@
 
 			// Retorna la lista de temas de la semana con sus respectivas materias, como en el ejemplo siguiente:
 			// La clave es el tema, el valor la materia
-			$array = $mobileQuery->AreasColegio();
+			$array = $mobileQuery->AreasColegio($_GET["grado_selec"]);
+
+			$output2 = array();
+			$index=0;					
+					
+				while($index<sizeof($array)){
+					$output2[$array[$index][0]]= $array[$index][1];		
+					$index++;
+					//print_r($output2);
+				}
+
+				echo json_encode($output2);
+			/*
+				grado1-> 1 Primero Primaria
+				grado2-> 2 Segundo Primaria
+
+			*/
+				
+			
+		}else if($_GET["mobile"]=="Asignatura_colegio"){
+
+			// Retorna la lista de temas de la semana con sus respectivas materias, como en el ejemplo siguiente:
+			// La clave es el tema, el valor la materia
+			$array = $mobileQuery->AsignaturasColegio($_GET["area_selec"]);
+
+			$output2 = array();
+			$index=0;					
+					
+				while($index<sizeof($array)){
+					$output2[$array[$index][0]]= $array[$index][1];		
+					$index++;
+					//print_r($output2);
+				}
+
+				echo json_encode($output2);
+			/*
+				grado1-> 1 Primero Primaria
+				grado2-> 2 Segundo Primaria
+
+			*/
+				
+			
+		}else if($_GET["mobile"]=="Indicador_colegio"){
+
+			// Retorna la lista de temas de la semana con sus respectivas materias, como en el ejemplo siguiente:
+			// La clave es el tema, el valor la materia
+			$array = $mobileQuery->IndicadoresColegio($_GET["asig_selec"]);
 
 			$output2 = array();
 			$index=0;					
@@ -93,11 +132,11 @@
 			*/
 				
 			
-		}else if($_GET["mobile"]=="Asignatura_colegio"){
+		}else if($_GET["mobile"]=="App_colegio"){
 
 			// Retorna la lista de temas de la semana con sus respectivas materias, como en el ejemplo siguiente:
 			// La clave es el tema, el valor la materia
-			$array = $mobileQuery->AsignaturasColegio($_GET["area_selec"]);
+			$array = $mobileQuery->AppsColegio();
 
 			$output2 = array();
 			$index=0;					

@@ -2,20 +2,22 @@ CREATE TABLE Area (id_area varchar(20) nombre_area varchar(20) PRIMARY KEY(id_ar
                     
 CREATE TABLE Asignatura (id_asignatura varchar(20) NOT NULL, nombre_asignatura varchar(20), id_area varchar(20), PRIMARY KEY(id_asignatura), FOREIGN key(id_area) REFERENCES Area(id_area) );
 
+CREATE TABLE Grado_Area (id_grado varchar(20), id_area varchar(20), PRIMARY KEY(id_grado,id_area), FOREIGN KEY (id_grado)
+    REFERENCES Grado(id_grado), FOREIGN KEY (id_area) REFERENCES Area(id_area));
 
                           
 CREATE TABLE Curso (id_curso varchar(20) NOT NULL, nombre_curso varchar(20), PRIMARY KEY (id_curso) ); 
 CREATE TABLE Indicador (id_indicador varchar(20) NOT NULL, nombre_indicador varchar(20), descripcion varchar(500),  PRIMARY KEY (id_indicador));
                           
-CREATE TABLE App (id_app varchar(20) nombre_app varchar(20) url_app varchar(80) indic_cubierto varchar(20) PRIMARY KEY(id_app)); 
+CREATE TABLE App (id_app varchar(20) NOT NULL, nombre_app varchar(30), url_app varchar(80), PRIMARY KEY(id_app)); 
                    
 CREATE TABLE Apps_indicador( id_app varchar(20), id_indicador varchar(20), PRIMARY KEY(id_app, id_indicador), FOREIGN KEY(id_app) REFERENCES App(id_app), FOREIGN KEY(id_indicador) REFERENCES Indicador(id_indicador) )  
                    
-CREATE TABLE Usuario (id INT NOT NULL AUTO_INCREMENT nombre varchar(100) apellido varchar(100) documento varchar(15) clave varchar(50) id_colegio varchar(20) PRIMARY KEY(id)FOREIGN KEY(id_colegio) REFERENCES Colegio(id_colegio) );
+CREATE TABLE Usuario (nombre varchar(100), apellido varchar(100), documento varchar(15), clave varchar(50), PRIMARY KEY(documento));
               
 CREATE TABLE Colegio (id_colegio varchar(20) nombre_colegio varchar(100) direccion_colegio varchar(80)  PRIMARY KEY(id_colegio) );
                       
-CREATE TABLE Asig_curso_indic (id_asig varchar(20), id_curso varchar(20), id_indic varchar(20), PRIMARY KEY(id_asig, id_curso, id_indic), FOREIGN KEY(id_asig) REFERENCES Asignatura(id_asignatura), FOREIGN KEY(id_curso) REFERENCES Curso(id_curso), FOREIGN KEY(id_indic) REFERENCES Indicador(id_indicador));
+CREATE TABLE Asig_indic (id_asig varchar(20), id_indic varchar(20), PRIMARY KEY(id_asig, id_indic), FOREIGN KEY(id_asig) REFERENCES Asignatura(id_asignatura), FOREIGN KEY(id_indic) REFERENCES Indicador(id_indicador));
 
 
 
@@ -28,34 +30,34 @@ CREATE TABLE Asignatura (id_asignatura varchar(20), nombre_asignatura varchar(20
 CREATE TABLE Curso (id_curso varchar(20), nombre_curso varchar(20), PRIMARY KEY (id_curso) ); 
 CREATE TABLE Indicador (id_indicador varchar(20), nombre_indicador varchar(20), descripcion varchar(500),  PRIMARY KEY (id_indicador));
                           
-CREATE TABLE App (id_app varchar(20), nombre_app varchar(20), url_app varchar(80), indic_cubierto varchar(20), PRIMARY KEY(id_app));
+CREATE TABLE App (id_app varchar(20), nombre_app varchar(20), url_app varchar(80), PRIMARY KEY(id_app));
 
-CREATE TABLE Apps_indicador( id_app varchar(20), id_indicador varchar(20), PRIMARY KEY(id_app, id_indicador), FOREIGN KEY(id_app) REFERENCES App(id_app), FOREIGN KEY(id_indicador) REFERENCES Indicador(id_indicador)); 
+CREATE TABLE Apps_indicador( id_app varchar(20) NOT NULL, id_indicador varchar(20) NOT NULL, PRIMARY KEY(id_app, id_indicador), FOREIGN KEY(id_app) REFERENCES App(id_app), FOREIGN KEY(id_indicador) REFERENCES Indicador(id_indicador)); 
 
 
 
 /////////////////////llenado de cursos///////////////////
-INSERT into curso VALUES("grado1", "1 Primero Primaria");
+INSERT into  grado VALUES("grado1", "1 Primero Primaria");
 
-INSERT into curso VALUES("grado2", "2 Segundo Primaria");
+INSERT into  grado VALUES("grado2", "2 Segundo Primaria");
 
-INSERT into curso VALUES("grado3", "3 Tercero Primaria");
+INSERT into  grado VALUES("grado3", "3 Tercero Primaria");
 
-INSERT into curso VALUES("grado4", "4 Cuarto Primaria");
+INSERT into  grado VALUES("grado4", "4 Cuarto Primaria");
 
-INSERT into curso VALUES("grado5", "5 Quinto Primaria");
+INSERT into  grado VALUES("grado5", "5 Quinto Primaria");
 
-INSERT into curso VALUES("grado6", "6 Sexto Bachillerato");
+INSERT into  grado VALUES("grado6", "6 Sexto Bachillerato");
 
-INSERT into curso VALUES("grado7", "7 Séptimo Bachillerato");
+INSERT into  grado VALUES("grado7", "7 Séptimo Bachillerato");
 
-INSERT into curso VALUES("grado8", "8 Octavo Bachillerato");
+INSERT into  grado VALUES("grado8", "8 Octavo Bachillerato");
 
-INSERT into curso VALUES("grado9", "9 Noveno Bachillerato");
+INSERT into  grado VALUES("grado9", "9 Noveno Bachillerato");
 
-INSERT into curso VALUES("grado10", "10 Décimo Bachillerato");
+INSERT into  grado VALUES("grado10", "10 Décimo Bachillerato");
 
-INSERT into curso VALUES("grado11", "11 Undécimo Bachillerato");
+INSERT into  grado VALUES("grado11", "11 Undécimo Bachillerato");
 
 
 INSERT Into area VALUES("area_1","Matematicas");
@@ -96,17 +98,132 @@ INSERT INTO indicador VALUES("indic_5","indicador de algo","mide la capacidad de
 INSERT INTO indicador VALUES("indic_6","indicador e algo 2","mide la capacidad de algo 2 del estudiante");
 
 
-INSERT INTO asig_curso_indic VALUES("asig_1","grado11","indic_1");
+INSERT into asig_indic VALUES("asig_01","indic_1");
 
-INSERT INTO asig_curso_indic VALUES("asig_2","grado07","indic_2");
+INSERT into asig_indic VALUES("asig_01","indic_3");
 
-INSERT INTO asig_curso_indic VALUES("asig_3","grado06","indic_4");
+INSERT into asig_indic VALUES("asig_01","indic_6");
 
-INSERT INTO asig_curso_indic VALUES("asig_4","grado04","indic_3");
 
-INSERT INTO asig_curso_indic VALUES("asig_5","grado05","indic_1");
+INSERT into asig_indic VALUES("asig_02","indic_2");
 
-INSERT INTO asig_curso_indic VALUES("asig_6","grado10","indic_2");
+INSERT into asig_indic VALUES("asig_02","indic_4");
 
-INSERT INTO asig_curso_indic VALUES("asig_8","grado02","indic_4");
 
+INSERT into asig_indic VALUES("asig_02","indic_5");
+
+
+
+INSERT into asig_indic VALUES("asig_03","indic_1");
+
+INSERT into asig_indic VALUES("asig_03","indic_2");
+
+INSERT into asig_indic VALUES("asig_03","indic_3");
+
+
+
+INSERT into asig_indic VALUES("asig_04","indic_4");
+
+INSERT into asig_indic VALUES("asig_04","indic_5");
+
+INSERT into asig_indic VALUES("asig_04","indic_6");
+
+
+INSERT into asig_indic VALUES("asig_05","indic_4");
+
+INSERT into asig_indic VALUES("asig_05","indic_3");
+
+INSERT into asig_indic VALUES("asig_05","indic_2");
+
+
+INSERT into asig_indic VALUES("asig_06","indic_1");
+
+INSERT into asig_indic VALUES("asig_06","indic_5");
+
+INSERT into asig_indic VALUES("asig_06","indic_6");
+
+
+INSERT into asig_indic VALUES("asig_07","indic_2");
+
+INSERT into asig_indic VALUES("asig_07","indic_3");
+
+INSERT into asig_indic VALUES("asig_07","indic_4");
+
+
+INSERT into asig_indic VALUES("asig_08","indic_6");
+
+INSERT into asig_indic VALUES("asig_08","indic_2");
+
+INSERT into asig_indic VALUES("asig_08","indic_5");
+
+
+INSERT into asig_indic VALUES("asig_09","indic_2");
+
+INSERT into asig_indic VALUES("asig_09","indic_4");
+
+INSERT into asig_indic VALUES("asig_09","indic_6");
+
+
+INSERT into asig_indic VALUES("asig_10","indic_3");
+
+INSERT into asig_indic VALUES("asig_10","indic_1");
+
+INSERT into asig_indic VALUES("asig_10","indic_5");
+
+
+
+INSERT INTO app VALUES("app_01","NombreApp1","www.facebook.com");
+
+INSERT INTO app VALUES("app_02","NombreApp2","http://www.youtube.com/");
+
+INSERT INTO app VALUES("app_03","NombreApp3","http://divisist2.ufps.edu.co/");
+
+INSERT INTO app VALUES("app_04","NombreApp4","http://ingsistemas.ufps.edu.co/");
+
+INSERT INTO app VALUES("app_05","NombreApp5","http://ingsistemas.ufps.edu.co/");
+
+INSERT INTO app VALUES("app_06","NombreApp6","http://divisist2.ufps.edu.co/");
+
+INSERT INTO app VALUES("app_07","NombreApp7","http://www.youtube.com/");
+
+
+
+INSERT INTO apps_indicador VALUES("app_01","indic_1");
+INSERT INTO apps_indicador VALUES("app_07","indic_1");
+INSERT INTO apps_indicador VALUES("app_08","indic_1");
+INSERT INTO apps_indicador VALUES("app_03","indic_1");
+
+
+INSERT INTO apps_indicador VALUES("app_05","indic_2");
+
+INSERT INTO apps_indicador VALUES("app_04","indic_2");
+
+INSERT INTO apps_indicador VALUES("app_06","indic_2");
+
+
+INSERT INTO apps_indicador VALUES("app_01","indic_3");
+INSERT INTO apps_indicador VALUES("app_02","indic_3");
+INSERT INTO apps_indicador VALUES("app_03","indic_3");
+INSERT INTO apps_indicador VALUES("app_05","indic_3");
+
+INSERT INTO apps_indicador VALUES("app_03","indic_4");
+INSERT INTO apps_indicador VALUES("app_07","indic_4");
+INSERT INTO apps_indicador VALUES("app_08","indic_4");
+
+INSERT INTO apps_indicador VALUES("app_08","indic_5");
+INSERT INTO apps_indicador VALUES("app_02","indic_5");
+INSERT INTO apps_indicador VALUES("app_05","indic_5");
+INSERT INTO apps_indicador VALUES("app_06","indic_5");
+
+INSERT INTO apps_indicador VALUES("app_04","indic_6");
+INSERT INTO apps_indicador VALUES("app_08","indic_6");
+INSERT INTO apps_indicador VALUES("app_02","indic_6");
+
+
+
+SELECT id_area,nombre_area FROM area A INNER JOIN grado_area R ON A.id_area = R.id_area
+    INNER JOIN grado G ON R.id_grado = G.id_grado WHERE R.id_grado = "grado1";
+
+    SELECT a.id_area as id, a.nombre_area as nombre, g.nombre_grado as grado
+FROM area a, grado_area inter, grado g
+where inter.id_area = a.id_area and inter.id_grado = "grado1" and inter.id_grado = g.id_grado

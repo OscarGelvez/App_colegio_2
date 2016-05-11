@@ -56,7 +56,8 @@ var root = "Servidor/app.php"; //Cambiar por la ruta raiz
   <div data-role="page" data-theme="b" id="Area_pag">
 
     <div data-role="header">
-      <a href="#Grado_pag" class="ui-btn-left ui-btn ui-btn-b ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back">Regresar</a>
+      <a href="#Grado_pag" class="ui-btn-left ui-btn ui-btn-b ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back" 
+      onclick="limpiarVista(AreasColegio)">Regresar</a>
       <h1>AcademicApp</h1>
     </div>
     <div data-role="content" data-theme="a">
@@ -87,7 +88,8 @@ var root = "Servidor/app.php"; //Cambiar por la ruta raiz
   <div data-role="page" data-theme="b" id="Asignatura_pag">
 
     <div data-role="header">
-      <a href="#Area_pag" class="ui-btn-left ui-btn ui-btn-b ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back" >Regresar</a>
+      <a href="#Area_pag" class="ui-btn-left ui-btn ui-btn-b ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back" 
+      onclick="limpiarVista(AsigColegio)">Regresar</a>
       <h1>AcademicApp</h1>
     </div>
     <div data-role="content" data-theme="a">
@@ -119,7 +121,7 @@ var root = "Servidor/app.php"; //Cambiar por la ruta raiz
   <div data-role="page" data-theme="b" id="Indicadores_pag">
 
     <div data-role="header">
-      <a href="#Asignatura_pag" class="ui-btn-left ui-btn ui-btn-b ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back" >Regresar</a>
+      <a href="#Asignatura_pag" class="ui-btn-left ui-btn ui-btn-b ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back"onclick="limpiarVista(IndicColegio)">Regresar</a>
       <h1>AcademicApp</h1>
     </div>
     <div data-role="content" data-theme="a">
@@ -128,26 +130,8 @@ var root = "Servidor/app.php"; //Cambiar por la ruta raiz
       <h2 class="centerText">Indicadores</h2>
 
 
-      <div data-role="fieldcontain" id="fc4">
-        <fieldset data-role="controlgroup">
-          <legend>Seleccione el Indicador deseado:</legend>
-          <br><br>
-          <input type="radio" name="radio-choice-1" id="radio-indicador-1" value="choice-1" checked="checked" />
-          <label for="radio-indicador-1">Indicador 1</label>
-
-          <input type="radio" name="radio-choice-2" id="radio-indicador-2" value="choice-2"  />
-          <label for="radio-indicador-2">Indicador 2</label>
-
-          <input type="radio" name="radio-choice-3" id="radio-indicador-3" value="choice-3"  />
-          <label for="radio-indicador-3">Indicador 3</label>
-
-          <input type="radio" name="radio-choice-4" id="radio-indicador-4" value="choice-4"  />
-          <label for="radio-indicador-4">Indicador 4</label>
-
-          <input type="radio" name="radio-choice-5" id="radio-indicador-5" value="choice-5"  />
-          <label for="radio-indicador-5">Indicador 5</label>
-
-        </fieldset>
+      <div data-role="fieldcontain" id="IndicColegio">
+        
       </div>
       <br>
       <a href="#Apps_pag" data-role="button" data-transition="fade" class="centerText" data-theme="d" onclick="cargarApps()">Continuar</a>
@@ -168,16 +152,18 @@ var root = "Servidor/app.php"; //Cambiar por la ruta raiz
   <div data-role="page" data-theme="b" id="Apps_pag">
 
     <div data-role="header">
-      <a href="#Indicadores_pag" class="ui-btn-left ui-btn ui-btn-b ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back" >Regresar</a>
+      <a href="#Indicadores_pag" class="ui-btn-left ui-btn ui-btn-b ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back" onclick="limpiarVista(IndicColegio)">Regresar</a>
       <h1>AcademicApp</h1>
     </div>
     <div data-role="content" data-theme="a">
 
       
       <h2 class="centerText">Aplicaciones Relacionadas</h2>
-      <div>
+      <div id="caja1">
         <h3>Nombre del Indicador: </h3>
-        <h4> Lorem ipsum dolor sit</h4>  
+        <h4> Lorem ipsum dolor sit</h4>
+        <h3>Grados donde aplica</h3>
+        <h3>Asignaturas donde aplica</h3>  
 
         <h3>Descripción: </h3>  
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -189,7 +175,7 @@ var root = "Servidor/app.php"; //Cambiar por la ruta raiz
           
         </div>
 
-        <div>
+        <div id="caja2">
          <h3>Aplicaciones:</h3>
 
          <ul data-role="listview" data-inset="true" data-theme="a" data-dividertheme="a">
@@ -204,7 +190,7 @@ var root = "Servidor/app.php"; //Cambiar por la ruta raiz
         </ul>
       </div>
       
-    </div>
+    </div> <!--div del content-->
   </div>
   
   <div data-role="footer">

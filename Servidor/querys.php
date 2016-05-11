@@ -39,7 +39,7 @@ public function registrar($nombre,$apellido,$documento,$contra,$contra2){
 	}
 	public function GradosColegio(){
 		$this->connect();
-		$query = $this->query("SELECT id_curso,nombre_curso FROM curso");
+		$query = $this->query("SELECT id_grado,nombre_grado FROM grado");
 		$this->terminate();
 		$array = array();
 
@@ -49,11 +49,14 @@ public function registrar($nombre,$apellido,$documento,$contra,$contra2){
 
 		return $array;
 	}
-	public function AreasColegio(){
+	public function AreasColegio($gradoSelec){
 		$this->connect();
-		$query = $this->query("SELECT id_area,nombre_area FROM area");
+		$query = $this->query("SELECT a.id_area, a.nombre_area, g.nombre_grado FROM area a, grado_area inter, grado g 
+			WHERE inter.id_area = a.id_area AND inter.id_grado ='".$gradoSelec."' AND inter.id_grado = g.id_grado");
 		$this->terminate();
+		
 		$array = array();
+
 
 		while($row = mysqli_fetch_array($query)){
 			array_push($array,$row);
@@ -73,5 +76,31 @@ public function registrar($nombre,$apellido,$documento,$contra,$contra2){
 
 		return $array;
 	}
+	public function IndicadoresColegio(){
+		$this->connect();
+		$query = $this->query("SELECT id_indicador,nombre_indicador FROM indicador"); // aqui falta la consulta...
+		$this->terminate();
+		$array = array();
+
+		while($row = mysqli_fetch_array($query)){
+			array_push($array,$row);
+		}
+
+		return $array;
+	}
+	public function AppsColegio(){
+		$this->connect();
+		$query = $this->query("SELECT id_indicador,nombre_indicador FROM indicador");// // aqui falta la consulta...
+		$this->terminate();
+		$array = array();
+
+		while($row = mysqli_fetch_array($query)){
+			array_push($array,$row);
+		}
+
+		return $array;
+	}
 }
 	?>
+
+	

@@ -16,7 +16,6 @@
 	        url:   root,
 	        type: tipoHttp,
 	        success:  function (response) {
-	        	console.log(response);
 	        	fSuccess(response); 
 	        },
 	        error: function(xhr, status){
@@ -60,7 +59,7 @@ function errorDeRed () {
 				role: "dialog"
 			});
         }else{
-        	 
+        	 //todo: validar que la respuesta se nula o falsa
         	var data = JSON.parse(response);
 
         	
@@ -69,7 +68,7 @@ function errorDeRed () {
         	//$("#SpanNombre").text("Bienvenido "+data.nombre+" "+data.apellido);
             
           
-          
+          var_dump();
            
         }
 	}
@@ -100,7 +99,7 @@ function errorDeRed () {
 	});
 
 	function signup (response) {
-		if(response=="ok"){
+		if(response == 1){
 	        $( ":mobile-pagecontainer" ).pagecontainer( "change", "#successSignup", { 
 				role: "dialog"
 			});
