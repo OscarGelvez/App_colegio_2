@@ -16,7 +16,7 @@ class MobileQuery extends Modelo{
 			$user = $row;
 		}
 
-		if($cont>0){	
+		if($cont>0){
 			return $user;
 		}
 		return false;
@@ -30,7 +30,7 @@ public function registrar($nombre,$apellido,$documento,$contra,$contra2){
 			$query = $this->query("INSERT INTO usuario(documento,nombre,apellido,clave) VALUES('".$documento."','".$nombre."','".$apellido."','".$contra."')");
 
 			$this->terminate();
-			
+
 			return $query;
 		}
 		else{
@@ -43,7 +43,7 @@ public function registrar($nombre,$apellido,$documento,$contra,$contra2){
 		$this->terminate();
 		$array = array();
 
-		while($row = mysqli_fetch_array($query)){
+		while($row = mysqli_fetch_array($query, MYSQL_ASSOC)){
 			array_push($array,$row);
 		}
 
@@ -51,14 +51,14 @@ public function registrar($nombre,$apellido,$documento,$contra,$contra2){
 	}
 	public function AreasColegio($gradoSelec){
 		$this->connect();
-		$query = $this->query("SELECT a.id_area, a.nombre_area, g.nombre_grado FROM area a, grado_area inter, grado g 
+		$query = $this->query("SELECT a.id_area, a.nombre_area, g.nombre_grado FROM area a, grado_area inter, grado g
 			WHERE inter.id_area = a.id_area AND inter.id_grado ='".$gradoSelec."' AND inter.id_grado = g.id_grado");
 		$this->terminate();
-		
+
 		$array = array();
 
 
-		while($row = mysqli_fetch_array($query)){
+		while($row = mysqli_fetch_array($query, MYSQL_ASSOC)){
 			array_push($array,$row);
 		}
 
@@ -70,37 +70,40 @@ public function registrar($nombre,$apellido,$documento,$contra,$contra2){
 		$this->terminate();
 		$array = array();
 
-		while($row = mysqli_fetch_array($query)){
+		while($row = mysqli_fetch_array($query, MYSQL_ASSOC)){
 			array_push($array,$row);
 		}
 
 		return $array;
 	}
-	public function IndicadoresColegio(){
+	public function IndicadoresColegio($AsigSelec){
 		$this->connect();
-		$query = $this->query("SELECT id_indicador,nombre_indicador FROM indicador"); // aqui falta la consulta...
+		$query = $this->query("SELECT * FROM indicador, asig_indic WHERE id_indicador=id_indic AND id_asig='".$AsigSelec."';"); // aqui falta la consulta...
 		$this->terminate();
 		$array = array();
 
-		while($row = mysqli_fetch_array($query)){
+		while($row = mysqli_fetch_array($query, MYSQL_ASSOC)){
 			array_push($array,$row);
 		}
 
 		return $array;
 	}
-	public function AppsColegio(){
+	public function AppsColegio($indiSelec){
 		$this->connect();
-		$query = $this->query("SELECT id_indicador,nombre_indicador FROM indicador");// // aqui falta la consulta...
+		$query = $this->query(
+		"SELECT I.nombre_indicador,I.descripcion,A.id_app,A.nombre_app, A.url_app, A.descripcion_app
+		FROM indicador as I, apps_indicador as AI, app as A
+		WHERE I.id_indicador=AI.id_indicador AND A.id_app=AI.id_app AND I.id_indicador='".$indiSelec."';");// // aqui falta la consulta...
 		$this->terminate();
 		$array = array();
 
-		while($row = mysqli_fetch_array($query)){
+		while($row = mysqli_fetch_array($query, MYSQL_ASSOC)){
 			array_push($array,$row);
 		}
 
 		return $array;
 	}
 }
-	?>
 
-	
+
+?>
