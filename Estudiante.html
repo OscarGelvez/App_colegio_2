@@ -27,12 +27,18 @@ var root = "Servidor/app.php"; //Cambiar por la ruta raiz
 
     <div data-role="header">
 
+
+       
       <h1>AcademicApp</h1>
-      <h4 id="nombreUser"></h4>
+
+             
+        <h4 class="nombreUser">nombre de prueba</h4>
+        
+        <a href="index.html" rel="external" class="ui-btn ui-shadow ui-icon-salir ui-btn-icon-notext" class="salir">Cerrar Sesión</a>
+         
     </div>
     <div data-role="content" data-theme="a">
 
-     <div id="nombreUser"></div>
      <h2 class="centerText">GRADOS</h2>
 
 
@@ -44,11 +50,7 @@ var root = "Servidor/app.php"; //Cambiar por la ruta raiz
      <div data-role="footer">
       <h5>AcademicApp UFPS Todos los derechos reservados 2016</h5>
     </div>
-    <a id="cerrarSesion1" data-role="button" data-mini="true">
-
-      <h3>Cerrar Sesión</h3>
-
-    </a>
+    
   </div>
 
   <!-- //////////////////////////////////////Pag. ÁREAS////////////////////////////////////////// -->
@@ -76,11 +78,7 @@ var root = "Servidor/app.php"; //Cambiar por la ruta raiz
     <div data-role="footer">
       <h5>AcademicApp UFPS Todos los derechos reservados 2016</h5>
     </div>
-    <a id="cerrarSesion2" data-role="button" data-mini="true">
-
-      <h3>Cerrar Sesión</h3>
-
-    </a>
+    
   </div>
 
   <!-- //////////////////////////////////////Pag. ASIGNATURAS////////////////////////////////////////// -->
@@ -108,11 +106,7 @@ var root = "Servidor/app.php"; //Cambiar por la ruta raiz
     <div data-role="footer">
       <h5>AcademicApp UFPS Todos los derechos reservados 2016</h5>
     </div>
-    <a id="cerrarSesion3" data-role="button" data-mini="true">
-
-      <h3>Cerrar Sesión</h3>
-
-    </a>
+    
   </div>
 
 
@@ -140,11 +134,7 @@ var root = "Servidor/app.php"; //Cambiar por la ruta raiz
     <div data-role="footer">
       <h5>AcademicApp UFPS Todos los derechos reservados 2016</h5>
     </div>
-    <a id="cerrarSesion4" data-role="button" data-mini="true">
-
-      <h3>Cerrar Sesión</h3>
-
-    </a>
+    
   </div>
 
   <!-- //////////////////////////////////////Pag. APPS RELACIONADAS////////////////////////////////////////// -->
@@ -152,7 +142,7 @@ var root = "Servidor/app.php"; //Cambiar por la ruta raiz
   <div data-role="page" data-theme="b" id="Apps_pag">
 
     <div data-role="header">
-      <a href="#Indicadores_pag" class="ui-btn-left ui-btn ui-btn-b ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back" onclick="limpiarVista(IndicColegio)">Regresar</a>
+      <a href="#Indicadores_pag" class="ui-btn-left ui-btn ui-btn-b ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back" onclick="limpiarVista2(caja1,caja2)">Regresar</a>
       <h1>AcademicApp</h1>
     </div>
     <div data-role="content" data-theme="a">
@@ -170,11 +160,7 @@ var root = "Servidor/app.php"; //Cambiar por la ruta raiz
   <div data-role="footer">
     <h5>AcademicApp UFPS Todos los derechos reservados 2016</h5>
   </div>
-  <a id="cerrarSesion5" data-role="button" data-mini="true">
-
-    <h3>Cerrar Sesión</h3>
-
-  </a>
+  
 </div>
 
 <script src="js/usuario.js"></script>

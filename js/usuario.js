@@ -26,6 +26,15 @@ var a=id_vista;
     $(a).empty();
 
 }
+function limpiarVista2(id_vista1,id_vista2){
+
+var a=id_vista1;
+    $(a).empty();
+
+var b=id_vista2; 
+    $(b).empty();   
+
+}
 
 function cargarGrados() {
     var parametros = {
