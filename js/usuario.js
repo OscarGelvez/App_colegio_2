@@ -11,8 +11,12 @@
 	/**
 	* @author OSCAR ANDRES GELVEZ SOLER     1150973
 	* @author KELLY JOHANA SEPÚLVEDA VERA   1150144
-	* @author MANUEL ELISEO 
+	* @author MANUEL ELISEO OSORIO JAIMES   1150715
 	*/
+
+
+
+
 
 function peticionAsincrona(tipoHttp, parametros, fSuccess, fError) {
 $.ajax({
@@ -248,12 +252,14 @@ var estructura1=txt1+"\n"+rta1+"\n"+TituloDescrip+"\n"+descrip;
 dom.append(estructura1);
 dom = $("#caja2");
 var valIdRadio = 1;
+
     for(var val in data){
+    			var ran=Math.floor(Math.random() * 8) + 1  
 				var UrlApp=data[val].url_app;
 				var idApp=data[val].id_app;
 				var nombreApp=data[val].nombre_app;
 				var descipcionApp=data[val].descripcion_app;
-        dom.append("<li class='ui-li-has-thumb ui-first-child'><a href='"+UrlApp+"' rel='external' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='img/' id="+idApp+"/><h3>"+nombreApp+"</h3><p>"+descipcionApp+"</p></a></li>").trigger('create');
+        dom.append("<li class='ui-li-has-thumb ui-first-child'><a href='"+UrlApp+"' target='_blank' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='img/l"+ran+".png' id="+idApp+"/><h3>"+nombreApp+"</h3><p>"+descipcionApp+"</p></a></li>").trigger('create');
         valIdRadio++;
     }
 }

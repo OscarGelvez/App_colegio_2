@@ -11,10 +11,11 @@
 	/**
 	* @author OSCAR ANDRES GELVEZ SOLER     1150973
 	* @author KELLY JOHANA SEPÚLVEDA VERA   1150144
-	* @author MANUEL ELISEO 
+	* @author MANUEL ELISEO OSORIO JAIMES   1150715
 	*/
 
-$(document).ready(function() {
+/*
+$( document ).ready(function() {
   	inicializar();
 });
 
@@ -22,3 +23,4 @@ function inicializar () {
     cargarGrados();
     
 }
+*/

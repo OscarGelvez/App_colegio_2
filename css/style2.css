@@ -53,11 +53,16 @@ background-attachment : scroll ;
 	color: rgb(255,255,255);
 }
 
+.bienAlert{
+	color: rgb(255,255,255);
+	font-size: 24px;
+}
+
 #iniSe{
 	font-size: 28px;
 }
 
 .tituloIndex{
-	color: rgb(195,198,24);
+	color: rgb(255,255,255);
 }
 

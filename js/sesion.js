@@ -11,7 +11,7 @@
 	/**
 	* @author OSCAR ANDRES GELVEZ SOLER     1150973
 	* @author KELLY JOHANA SEPÚLVEDA VERA   1150144
-	* @author MANUEL ELISEO 
+	* @author MANUEL ELISEO OSORIO JAIMES   1150715
 	*/
 
 	function peticionAsincrona(tipoHttp, parametros, fSuccess, fError) {
@@ -66,15 +66,21 @@ function errorDeRed () {
         }else{
         	 //todo: validar que la respuesta se nula o falsa
         	var data = JSON.parse(response);
+        	var domi = $("#saludo");
+
+        	var h= "<h2>"+data["nombre"]+" "+ data["apellido"]+ "</h2>";
+        	domi.append(h);
+
+        	$( ":mobile-pagecontainer" ).pagecontainer( "change", "#bienvenido", { 
+				role: "dialog"
+			});
 
         	
         	    	
-        	window.location.href = "Estudiante.html";
+        	//window.location.href = "Estudiante.html";
         	//$("#SpanNombre").text("Bienvenido "+data.nombre+" "+data.apellido);
             
           
-          var_dump();
-           
         }
 	}
 
