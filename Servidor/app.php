@@ -1,5 +1,21 @@
 <?php
+/**
+ 	* .............................................
+ 	* UNIVERSIDAD  FRANCISCO  DE  PAULA  SANTANDER
+ 	*    PROGRAMA  DE  INGENIERIA   DE   SISTEMAS
+ 	*        DESARROLLO DE APLICACION MOVIL 
+ 	*              "ACADEMICAPP"
+ 	*          SAN JOSE DE CUCUTA-2016
+	* ............................................
+ 	*/
 
+	/**
+	* @author OSCAR ANDRES GELVEZ SOLER     1150973
+	* @author KELLY JOHANA SEPÚLVEDA VERA   1150144
+	* @author MANUEL ELISEO 
+	*/
+
+	
 	include_once "querys.php";
 	$mobileQuery = new MobileQuery();
 	if(isset($_POST["mobile"])){
@@ -18,7 +34,7 @@
 				echo "error";
 			}
 			*/
-			$array = $mobileQuery->login($_POST["documento"],$_POST["password"]);
+			$array = $mobileQuery->login($_POST["documento"],sha1($_POST["password"]));
 			if(!$array){
 				echo "error";
 			}
@@ -33,7 +49,7 @@
 			//Los datos de registro llegan por post. Hace echo "ok" si el registro es exitoso, echo "error"
 			//en caso contrario
 			//Recibe: $_POST["codigo"],$_POST["nombre"],$_POST["semestre"],$_POST["correo"], $_POST["password"] y $_POST["password2"]
-			echo $mobileQuery->registrar($_POST["nombre"],$_POST["apellido"],$_POST["documento"],$_POST["password"],$_POST["password2"]);
+			echo $mobileQuery->registrar($_POST["nombre"],$_POST["apellido"],$_POST["documento"],sha1($_POST["password"]),sha1($_POST["password2"]));
 
 		}
 

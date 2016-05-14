@@ -1,8 +1,18 @@
-/*
-Componente para manejar los usuariosde la aplicacion y construir los objetod html
-predeterminados
+/**
+ 	* .............................................
+ 	* UNIVERSIDAD  FRANCISCO  DE  PAULA  SANTANDER
+ 	*    PROGRAMA  DE  INGENIERIA   DE   SISTEMAS
+ 	*        DESARROLLO DE APLICACION MOVIL 
+ 	*              "ACADEMICAPP"
+ 	*          SAN JOSE DE CUCUTA-2016
+	* ............................................
+ 	*/
 
-*/
+	/**
+	* @author OSCAR ANDRES GELVEZ SOLER     1150973
+	* @author KELLY JOHANA SEPÚLVEDA VERA   1150144
+	* @author MANUEL ELISEO 
+	*/
 
 function peticionAsincrona(tipoHttp, parametros, fSuccess, fError) {
 $.ajax({
@@ -19,6 +29,37 @@ $.ajax({
 	        }
 	    });
 	}
+
+
+
+$(document).on("pagecontainertransition", adjustContentHeight);
+    $(window).on("resize" , adjustContentHeight) ;
+    $(window).on("orientationchange", adjustContentHeight);
+
+    function adjustContentHeight()
+    {
+        var headerHeights = 0;
+
+        $('.ui-header').each(function(index, obj){
+                 var itm = $( this );
+                 if (itm)
+                 {
+                    headerHeights = headerHeights + itm.outerHeight();
+                 }
+        });
+
+        var screen = $.mobile.getScreenHeight();
+        var footer = $(".ui-footer").hasClass("ui-footer-fixed") ? $(".ui-footer").outerHeight() - 1 : $(".ui-footer").outerHeight();
+        var contentCurrent = $(".ui-content").outerHeight() - $(".ui-content").height();
+
+        var content = screen - headerHeights - footer - contentCurrent;
+        $(".ui-content").height(content);
+    }
+
+
+
+
+
 
 function limpiarVista(id_vista){
 
@@ -204,9 +245,6 @@ var dom = $("#caja1");
 
 var estructura1=txt1+"\n"+rta1+"\n"+TituloDescrip+"\n"+descrip;
 
-//de aqui pa abajo falta crear la estructura dinamica.  pille la vista Estudiante linea 150. hay dos divs que contienes todo. dentro de ellos genere lo dinamico.
-//se llaman caja1 y caja2... aqui no tengo ni idea. mire la vista y pille q necesito mostrar el grado, la asignatura, el nombre y descrip del indicador ni idea.
-// aparte de las apps relacionadas...
 dom.append(estructura1);
 dom = $("#caja2");
 var valIdRadio = 1;
@@ -215,27 +253,11 @@ var valIdRadio = 1;
 				var idApp=data[val].id_app;
 				var nombreApp=data[val].nombre_app;
 				var descipcionApp=data[val].descripcion_app;
-        dom.append("<li class='ui-li-has-thumb ui-first-child'><a href='"+UrlApp+"'class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='img/' id="+idApp+"/><h3>"+nombreApp+"</h3><p>"+descipcionApp+"</p></a></li>").trigger('create');
+        dom.append("<li class='ui-li-has-thumb ui-first-child'><a href='"+UrlApp+"' rel='external' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='img/' id="+idApp+"/><h3>"+nombreApp+"</h3><p>"+descipcionApp+"</p></a></li>").trigger('create');
         valIdRadio++;
     }
 }
 
-/*
-<div id="caja1">
-        <h3>Nombre del Indicador: </h3>
-        <h4> Lorem ipsum dolor sit</h4>
-        <h3>Grados donde aplica</h3>
-        <h3>Asignaturas donde aplica</h3>
-
-        <h3>Descripción: </h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-        </div>
 
 
 
@@ -250,27 +272,3 @@ var valIdRadio = 1;
 
 
 
-
-/*
-
-
-
-
-
-<fieldset data-role="controlgroup" data-mini="false">
-        <legend>Seleccione un curso</legend>
-        <br><br>
-        <input type="radio" name="radioGrado" id="radioGrado-1" />
-        <label for="radioGrado-1">Grado1</label>
-        <input type="radio" name="radioGrado" id="radioGrado-2" />
-        <label for="radioGrado-2">Grado</label>
-        <input type="radio" name="radioGrado" id="radioGrado-3" />
-        <label for="radioGrado-3">Grado</label>
-        <input type="radio" name="radioGrado" id="radioGrado-4" />
-        <label for="radioGrado-4">Grado</label>
-        <input type="radio" name="radioGrado" id="radioGrado-5" />
-        <label for="radioGrado-5">Grado</label>
-        <input type="radio" name="radioGrado" id="radioGrado-6" />
-        <label for="radioGrado-6">Grado6</label>
-    </fieldset>
-   */

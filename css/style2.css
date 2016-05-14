@@ -30,25 +30,34 @@ input.centerText{
 	text-align: center;
 }
 
-.nombreUser{
-	float: left;
+
+
+
+.ui-page .ui-content{
+background-color: rgba(224,242,241,0.5);
+background-repeat: repeat; 
+
+
+background-attachment : scroll ; 
 
 }
 
-.salir{
-	float:right;
+.tituloFooter{
+	color: rgb(255,255,255);
 }
-
-.ui-icon-salir{
-	background-image: url(../img/cerrar.png);
-	background-size: 18px 18px;
-	background-position: center;
-	background-repeat: no-repeat;
+.tituloAca{
+	color: rgb(40,40,40);
 	
 }
+.errorAlert{
+	color: rgb(255,255,255);
+}
 
-tr:nth-child(even) {
-    background: #e9e9e9;
+#iniSe{
+	font-size: 28px;
+}
 
-}  
+.tituloIndex{
+	color: rgb(195,198,24);
+}
 

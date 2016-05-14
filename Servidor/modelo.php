@@ -4,15 +4,16 @@
  	* .............................................
  	* UNIVERSIDAD  FRANCISCO  DE  PAULA  SANTANDER
  	*    PROGRAMA  DE  INGENIERIA   DE   SISTEMAS
- 	*         AMIGOS ACADEMICOS INTERACTIVOS
- 	*             SAN JOSE DE CUCUTA-2016
+ 	*        DESARROLLO DE APLICACION MOVIL 
+ 	*              "ACADEMICAPP"
+ 	*          SAN JOSE DE CUCUTA-2016
 	* ............................................
  	*/
 
 	/**
-	* @author 
-	* @author 
-	* @author 
+	* @author OSCAR ANDRES GELVEZ SOLER     1150973
+	* @author KELLY JOHANA SEPÚLVEDA VERA   1150144
+	* @author MANUEL ELISEO 
 	*/
 
 

@@ -1,3 +1,19 @@
+<!--/**
+  * .............................................
+  * UNIVERSIDAD  FRANCISCO  DE  PAULA  SANTANDER
+  *    PROGRAMA  DE  INGENIERIA   DE   SISTEMAS
+  *        DESARROLLO DE APLICACION MOVIL 
+  *              "ACADEMICAPP"
+  *          SAN JOSE DE CUCUTA-2016
+  * ............................................
+  */
+
+  /**
+  * @author OSCAR ANDRES GELVEZ SOLER     1150973
+  * @author KELLY JOHANA SEPÚLVEDA VERA   1150144
+  * @author MANUEL ELISEO 
+  */
+-->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,7 +24,8 @@
 	<title>AcedemicApp</title>
 
 <link rel="stylesheet" type="text/css" href="css/style2.css">
-<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css">  
+<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css"> 
+<link rel="stylesheet" type="text/css" href="css/generated/jquery.mobile.flatui.css" /> 
 <script src="js/jquery-2.2.3.js"></script>
 <script src="js/jquery.mobile-1.4.5.min.js"></script>
 <script>
@@ -21,34 +38,34 @@ var root = "Servidor/app.php"; //Cambiar por la ruta raiz
 <body>
 
 <!--///////////////////////////////////////////////// PAGINA INICIO DE SESIÓN /////////////////////////////////////////////////-->
-	<div data-role="page" data-theme="b" id="login_pag">
+	<div data-role="page" data-theme="b" id="login_pag" >
     <div data-role="header">
-            <h1>AcademicApp</h1>
+            <h1 class="tituloIndex">AcademicApp</h1>
     </div>
     <div data-role="content" data-theme="a">           
       <form id="login">    
-        <h3 class="centerText">Iniciar Sesión</h3>
+        <h3 class="centerText" id="iniSe">Iniciar Sesión</h3>
            <span class="centerImg">
                <img src="img/logo.png" alt="Imagen logo AcademicApp"class="imagen">
             </span>
             <br>
              <label for="id_user" class="label">Documento de Identificación:</label>
-              <input type="number" name="id_user" id="id_user" data-mini="true" class="centerText" data-clear-btn="true" placeholder="Documento de Identidad" required/>
+              <input type="text" name="id_user" pattern="[0-9]{8,10}$" id="id_user" data-mini="true" class="centerText" data-clear-btn="true" placeholder="Documento de Identidad" required/>
                <br>
             <label for="password" class="label">Contraseña:</label>
-              <input type="Password" name="password" id="password" data-mini="true" class="centerText" data-clear-btn="true" placeholder="Contraseña" required/>
+              <input type="Password" name="password" pattern="[A-Za-z0-9!?-]{4,8}$" id="password" data-mini="true" class="centerText" data-clear-btn="true" placeholder="Contraseña 4-8 carácteres" required/>
               <br>
                 <label>
-                <input type="submit" value="Iniciar Sesión" id="botonLogin">
+                <input type="submit" value="Iniciar Sesión" id="botonLogin" >
               </label>
             <br><br>
-      <a href="Estudiante.html" rel="external">Saltar Logguin. debug</a>
-      <a href="#singup_pag"  data-transition="fade" class="centerText">¿Aún no esta Registrado?</a>
+      
+      <a href="#singup_pag"  data-transition="fade">¿Aún no esta Registrado?</a>
       </form>
       </div>
     
     <div data-role="footer">
-            <h5>AcademicApp UFPS Todos los derechos reservados 2016</h5>
+            <h5>AcademicApp UFPS 2016</h5>
         </div>
     </div>
 
@@ -62,21 +79,21 @@ var root = "Servidor/app.php"; //Cambiar por la ruta raiz
         <h2 class="centerText">Registro</h2>        
         <br>
         <label for="nombre" class="label">Nombre: </label>
-      <input type="text" name="nombre" id="nombre" value="" data-mini="true" class="centerText" data-clear-btn="true" />
+      <input type="text" name="nombre"  pattern="^[a-zA-Z ]{3,20}$" id="nombre" value="" data-mini="true" class="centerText" data-clear-btn="true" required/>
         <br>
         <label for="apellido" class="label">Apellido: </label>
-      <input type="text" name="apellido" id="apellido" value="" data-mini="true" class="centerText" data-clear-btn="true" />
+      <input type="text" name="apellido" pattern="^[a-zA-Z ]{3,20}$" id="apellido" value="" data-mini="true" class="centerText" data-clear-btn="true" required/>
       <br>
          <label for="id_userR" class="label">Documento de Identificación:</label>
-      <input type="number" name="id_userR" id="id_userR" value="" data-mini="true" class="centerText" data-clear-btn="true" />
+      <input type="text" name="id_userR" pattern="[0-9]{8,10}$" id="id_userR" data-mini="true" class="centerText" data-clear-btn="true" required/>
         <br>
       <label for="passR" class="label">Contraseña:</label>
-      <input type="password" name="passR" id="passR" data-mini="true" class="centerText" data-clear-btn="true"/>
+      <input type="password" name="passR" pattern="[A-Za-z0-9!?-]{4,8}$" id="passR" data-mini="true" class="centerText" data-clear-btn="true" placeholder="Contraseña 4-8 caracteres" required/>
       <br>
       <label for="pass2" class="label">Repita Contraseña:</label>
-      <input type="password" name="pass2" id="pass2" data-mini="true" class="centerText" data-clear-btn="true"/>
+      <input type="password" name="pass2" pattern="[A-Za-z0-9!?-]{4,8}$" id="pass2" data-mini="true" class="centerText" data-clear-btn="true" placeholder="Contraseña 4-8 caracteres" required/>
       <br>
-<label for="IE" class="label">Insitución Educativa: nombre del colegio</label>
+<label for="IE" class="label">Insitución Educativa: Corsaje</label>
        
       <br>
       <input type="submit" value="Registrar" id="botonReg">
@@ -85,14 +102,14 @@ var root = "Servidor/app.php"; //Cambiar por la ruta raiz
       </form>      
     </div>    
     <div data-role="footer">
-            <h5>AcademicApp UFPS Todos los derechos reservados 2016</h5>
+            <h5>AcademicApp UFPS 2016</h5>
         </div>
     </div>
 
     <!--///////////////////Alerts En caso de error al Iniciar Sesión ///////////////////////-->
-  <div data-role="dialog" id="errorLogin">
+  <div data-role="dialog" id="errorLogin" data-theme="d">
      <div data-role="header">
-      <h1>Error</h1>
+      <h1 class="errorAlert">Error</h1>
     </div>
 
     <div data-role="content"> 
@@ -104,7 +121,7 @@ var root = "Servidor/app.php"; //Cambiar por la ruta raiz
 <div data-role="dialog" id="errorPassword">
 
     <div data-role="header">
-      <h1>Error</h1>
+      <h1 class="errorAlert">Error</h1>
     </div>
 
     <div data-role="content"> 
@@ -117,7 +134,7 @@ var root = "Servidor/app.php"; //Cambiar por la ruta raiz
   <div data-role="dialog" id="successSignup">
 
     <div data-role="header">
-      <h1>Registro Correcto</h1>
+      <h1 class="errorAlert">Registro Correcto</h1>
     </div>
     <div data-role="content"> 
       <h2>¡Tu cuenta se ha creado correctamente!</h2>
@@ -131,7 +148,7 @@ var root = "Servidor/app.php"; //Cambiar por la ruta raiz
   <div data-role="dialog" id="errorSignup">
 
     <div data-role="header">
-      <h1>Error</h1>
+      <h1 class="errorAlert">Error</h1>
     </div>
 
     <div data-role="content"> 
@@ -145,7 +162,7 @@ var root = "Servidor/app.php"; //Cambiar por la ruta raiz
   <div data-role="dialog" id="errorRed">
 
     <div data-role="header">
-      <h1>Error</h1>
+      <h1 class="errorAlert">Error</h1>
     </div>
 
     <div data-role="content"> 

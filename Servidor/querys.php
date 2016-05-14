@@ -1,5 +1,21 @@
 <?php
 
+/**
+ 	* .............................................
+ 	* UNIVERSIDAD  FRANCISCO  DE  PAULA  SANTANDER
+ 	*    PROGRAMA  DE  INGENIERIA   DE   SISTEMAS
+ 	*        DESARROLLO DE APLICACION MOVIL 
+ 	*              "ACADEMICAPP"
+ 	*          SAN JOSE DE CUCUTA-2016
+	* ............................................
+ 	*/
+
+	/**
+	* @author OSCAR ANDRES GELVEZ SOLER     1150973
+	* @author KELLY JOHANA SEPÚLVEDA VERA   1150144
+	* @author MANUEL ELISEO 
+	*/
+
 include_once "modelo.php";
 
 class MobileQuery extends Modelo{
@@ -78,7 +94,7 @@ public function registrar($nombre,$apellido,$documento,$contra,$contra2){
 	}
 	public function IndicadoresColegio($AsigSelec){
 		$this->connect();
-		$query = $this->query("SELECT * FROM indicador, asig_indic WHERE id_indicador=id_indic AND id_asig='".$AsigSelec."';"); // aqui falta la consulta...
+		$query = $this->query("SELECT * FROM indicador, asig_indic WHERE id_indicador=id_indic AND id_asig='".$AsigSelec."';"); 
 		$this->terminate();
 		$array = array();
 
@@ -93,7 +109,7 @@ public function registrar($nombre,$apellido,$documento,$contra,$contra2){
 		$query = $this->query(
 		"SELECT I.nombre_indicador,I.descripcion,A.id_app,A.nombre_app, A.url_app, A.descripcion_app
 		FROM indicador as I, apps_indicador as AI, app as A
-		WHERE I.id_indicador=AI.id_indicador AND A.id_app=AI.id_app AND I.id_indicador='".$indiSelec."';");// // aqui falta la consulta...
+		WHERE I.id_indicador=AI.id_indicador AND A.id_app=AI.id_app AND I.id_indicador='".$indiSelec."';");
 		$this->terminate();
 		$array = array();
 

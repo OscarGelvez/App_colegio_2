@@ -1,12 +1,19 @@
 /**
-*   Libreria con utilidades para estudiantes
-*   @author 
-*   @date 
-*/
+ 	* .............................................
+ 	* UNIVERSIDAD  FRANCISCO  DE  PAULA  SANTANDER
+ 	*    PROGRAMA  DE  INGENIERIA   DE   SISTEMAS
+ 	*        DESARROLLO DE APLICACION MOVIL 
+ 	*              "ACADEMICAPP"
+ 	*          SAN JOSE DE CUCUTA-2016
+	* ............................................
+ 	*/
 
-/**
-*   Inicializa datos desde la BD
-*/
+	/**
+	* @author OSCAR ANDRES GELVEZ SOLER     1150973
+	* @author KELLY JOHANA SEPÚLVEDA VERA   1150144
+	* @author MANUEL ELISEO 
+	*/
+
 $(document).ready(function() {
   	inicializar();
 });

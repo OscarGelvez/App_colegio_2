@@ -1,3 +1,19 @@
+<!--/**
+  * .............................................
+  * UNIVERSIDAD  FRANCISCO  DE  PAULA  SANTANDER
+  *    PROGRAMA  DE  INGENIERIA   DE   SISTEMAS
+  *        DESARROLLO DE APLICACION MOVIL 
+  *              "ACADEMICAPP"
+  *          SAN JOSE DE CUCUTA-2016
+  * ............................................
+  */
+
+  /**
+  * @author OSCAR ANDRES GELVEZ SOLER     1150973
+  * @author KELLY JOHANA SEPÚLVEDA VERA   1150144
+  * @author MANUEL ELISEO 
+  */
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,11 +22,11 @@
   <title>AcademicApp</title>
   <!--<link rel="stylesheet" type="text/css" href="css/style.css"> -->
 
-  <link rel="stylesheet" type="text/css" href="css/style2.css">
-
-
 
   <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css">
+  
+  <link rel="stylesheet" type="text/css" href="css/generated/jquery.mobile.flatui.css" />
+  <link rel="stylesheet" type="text/css" href="css/style2.css">
 
   <script src="js/jquery-2.2.3.js"></script>
 
@@ -27,28 +43,24 @@ var root = "Servidor/app.php"; //Cambiar por la ruta raiz
 
     <div data-role="header">
 
-
-       
-      <h1>AcademicApp</h1>
-
-             
-        <h4 class="nombreUser">nombre de prueba</h4>
-        
-        <a href="index.html" rel="external" class="ui-btn ui-shadow ui-icon-salir ui-btn-icon-notext" class="salir">Cerrar Sesión</a>
+      <h1 class="tituloAca">AcademicApp</h1>
+            
+    
+        <a href="index.html" rel="external"  class="ui-btn ui-shadow ui-btn-corner-all ui-btn-right ui-mini ui-btn-inline ui-btn-icon-notext ui-icon-power"></a>
          
     </div>
-    <div data-role="content" data-theme="a">
-
+    <div data-role="content" data-theme="a" id = "background">
+    
      <h2 class="centerText">GRADOS</h2>
 
 
      <div data-role="fieldcontain" id="GradosColegio">
      </div>
      <br>
-     <a href="#Area_pag" data-role="button" data-transition="fade" class="centerText" data-theme="d" onclick="cargarAreas()">Continuar</a>
-     </divArea
-     <div data-role="footer">
-      <h5>AcademicApp UFPS Todos los derechos reservados 2016</h5>
+     <a href="#Area_pag" data-role="button" data-transition="fade" class="centerText" data-theme="f" onclick="cargarAreas()" data-icon="arrow-r"  data-iconpos="right">Continuar</a>
+    </div>
+     <div data-role="footer" data-position="fixed">
+      <h5 class="tituloFooter" >AcademicApp UFPS 2016</h5>
     </div>
     
   </div>
@@ -57,26 +69,27 @@ var root = "Servidor/app.php"; //Cambiar por la ruta raiz
 
   <div data-role="page" data-theme="b" id="Area_pag">
 
-    <div data-role="header">
-      <a href="#Grado_pag" class="ui-btn-left ui-btn ui-btn-b ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back"
+    <div data-role="header" data-position="fixed">
+      <a href="#Grado_pag" class="ui-btn-left ui-btn ui-shadow  ui-btn-inline ui-mini ui-corner-all ui-btn-icon-notext ui-icon-arrow-l"
       onclick="limpiarVista(AreasColegio)">Regresar</a>
-      <h1>AcademicApp</h1>
+      <h1 class="tituloAca">AcademicApp</h1>
+      <a href="index.html" rel="external"  class="ui-btn ui-shadow ui-btn-corner-all ui-btn-right ui-mini ui-btn-inline ui-btn-icon-notext ui-icon-power"></a>
     </div>
-    <div data-role="content" data-theme="a">
+    <div data-role="content" data-theme="a" >
 
 
       <h2 class="centerText">Áreas</h2>
 
 
-      <div data-role="fieldcontain" id="AreasColegio">
+      <div data-role="fieldcontain" id="AreasColegio" >
 
       </div>
       <br>
-      <a href="#Asignatura_pag" data-role="button" data-transition="fade" class="centerText" data-theme="d" onclick="cargarAsignaturas()">Continuar</a>
+      <a href="#Asignatura_pag" data-role="button" data-transition="fade" class="centerText" data-theme="f" onclick="cargarAsignaturas()" data-icon="arrow-r"  data-iconpos="right">Continuar</a>
     </div>
 
-    <div data-role="footer">
-      <h5>AcademicApp UFPS Todos los derechos reservados 2016</h5>
+    <div data-role="footer"  data-position="fixed">
+      <h5 class="tituloFooter" >AcademicApp UFPS 2016</h5>
     </div>
     
   </div>
@@ -85,10 +98,11 @@ var root = "Servidor/app.php"; //Cambiar por la ruta raiz
 
   <div data-role="page" data-theme="b" id="Asignatura_pag">
 
-    <div data-role="header">
-      <a href="#Area_pag" class="ui-btn-left ui-btn ui-btn-b ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back"
+    <div data-role="header" >
+      <a href="#Area_pag" class="ui-btn-left ui-btn ui-shadow  ui-btn-inline ui-mini ui-corner-all ui-btn-icon-notext ui-icon-arrow-l"
       onclick="limpiarVista(AsigColegio)">Regresar</a>
-      <h1>AcademicApp</h1>
+      <h1 class="tituloAca">AcademicApp</h1>
+      <a href="index.html" rel="external"  class="ui-btn ui-shadow ui-btn-corner-all ui-btn-right ui-mini ui-btn-inline ui-btn-icon-notext ui-icon-power"></a>
     </div>
     <div data-role="content" data-theme="a">
 
@@ -100,11 +114,11 @@ var root = "Servidor/app.php"; //Cambiar por la ruta raiz
 
       </div>
       <br>
-      <a href="#Indicadores_pag" data-role="button" data-transition="fade" class="centerText" data-theme="d" onclick="cargarIndicadores()">Continuar</a>
+      <a href="#Indicadores_pag" data-role="button" data-transition="fade" class="centerText" data-theme="f" onclick="cargarIndicadores()" data-icon="arrow-r"  data-iconpos="right" data-position="fixed">Continuar</a>
     </div>
 
-    <div data-role="footer">
-      <h5>AcademicApp UFPS Todos los derechos reservados 2016</h5>
+    <div data-role="footer" class="tituloFooter" data-position="fixed">
+      <h5 class="tituloFooter" >AcademicApp UFPS 2016</h5>
     </div>
     
   </div>
@@ -115,8 +129,9 @@ var root = "Servidor/app.php"; //Cambiar por la ruta raiz
   <div data-role="page" data-theme="b" id="Indicadores_pag">
 
     <div data-role="header">
-      <a href="#Asignatura_pag" class="ui-btn-left ui-btn ui-btn-b ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back"onclick="limpiarVista(IndicColegio)">Regresar</a>
-      <h1>AcademicApp</h1>
+      <a href="#Asignatura_pag" class="ui-btn-left ui-btn ui-shadow  ui-btn-inline ui-mini ui-corner-all ui-btn-icon-notext ui-icon-arrow-l" onclick="limpiarVista(IndicColegio)">Regresar</a>
+      <h1 class="tituloAca">AcademicApp</h1>
+      <a href="index.html" rel="external"  class="ui-btn ui-shadow ui-btn-corner-all ui-btn-right ui-mini ui-btn-inline ui-btn-icon-notext ui-icon-power"></a>
     </div>
     <div data-role="content" data-theme="a">
 
@@ -128,11 +143,11 @@ var root = "Servidor/app.php"; //Cambiar por la ruta raiz
 
       </div>
       <br>
-      <a href="#Apps_pag" data-role="button" data-transition="fade" class="centerText" data-theme="d" onclick="cargarApps()">Continuar</a>
+      <a href="#Apps_pag" data-role="button" data-transition="fade" class="centerText" data-theme="f" onclick="cargarApps()" data-icon="arrow-r"  data-iconpos="right">Continuar</a>
     </div>
 
-    <div data-role="footer">
-      <h5>AcademicApp UFPS Todos los derechos reservados 2016</h5>
+    <div data-role="footer" class="tituloFooter" data-position="fixed">
+      <h5 class="tituloFooter" >AcademicApp UFPS 2016</h5>
     </div>
     
   </div>
@@ -142,8 +157,9 @@ var root = "Servidor/app.php"; //Cambiar por la ruta raiz
   <div data-role="page" data-theme="b" id="Apps_pag">
 
     <div data-role="header">
-      <a href="#Indicadores_pag" class="ui-btn-left ui-btn ui-btn-b ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back" onclick="limpiarVista2(caja1,caja2)">Regresar</a>
-      <h1>AcademicApp</h1>
+      <a href="#Indicadores_pag" class="ui-btn-left ui-btn ui-shadow  ui-btn-inline ui-mini ui-corner-all ui-btn-icon-notext ui-icon-arrow-l" onclick="limpiarVista2(caja1,caja2)">Regresar</a>
+      <h1 class="tituloAca">AcademicApp</h1>
+      <a href="index.html" rel="external"  class="ui-btn ui-shadow ui-btn-corner-all ui-btn-right ui-mini ui-btn-inline ui-btn-icon-notext ui-icon-power"></a>
     </div>
     <div data-role="content" data-theme="a">
 
@@ -152,13 +168,13 @@ var root = "Servidor/app.php"; //Cambiar por la ruta raiz
       <div id="caja1"></div>
 
 			<h3>Aplicaciones:</h3>
-			<ul data-role="listview" data-inset="true" data-theme="a" data-dividertheme="a" id="caja2"></ul>
+			<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="c" id="caja2"></ul>
 
     </div> <!--div del content-->
-  </div>
+  
 
-  <div data-role="footer">
-    <h5>AcademicApp UFPS Todos los derechos reservados 2016</h5>
+  <div data-role="footer" data-position="fixed">
+    <h5 class="tituloFooter">AcademicApp UFPS 2016</h5>
   </div>
   
 </div>
